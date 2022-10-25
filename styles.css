@@ -1,0 +1,220 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+.keyboard{
+	width: 825px;
+	height: 320px;
+	position: absolute;
+	top: calc(50% - 160px);
+	left: calc(50% - 412.5px);
+	padding: 5px;
+	padding-top: 15px;
+	background-color: gray;
+	border-radius: 10px;
+	color: white;
+}
+
+.row{
+	display: flex;
+	flex-direction: row;
+}
+
+.key{
+	width: 48px;
+	height: 50px;
+	border-radius: 3px;
+	border: solid black 1px;
+	margin: 4px;
+	padding: 4px;
+	background-color: black;
+	font-size: 25px;
+	box-shadow: -2px 2px #444;
+}
+.key:hover{
+	box-shadow: none;
+}
+/**********************
+****function keys row **
+**********************/
+/*keys of class function in the function row*/
+/*.function{
+	width: 50px;
+	height: 25px;	
+}*/
+
+/*the icons inside function keys
+#function-row .top{
+	font-size: 15px;
+	float: left;
+}
+
+/*the actual text inside function keys
+#function-row .bottom{
+	font-size: 10px;
+	margin-top: 7px;
+	float: right;
+}
+*/
+
+#numbers-row > div:last-of-type{
+	width: 75px;
+}
+
+#numbers-row .top{
+	font-size: 14px;
+	width: 100%;
+	text-align: right;
+	float: right;
+}
+.bottom{
+	font-size: 18x;
+}
+
+#upper-row div:first-of-type{
+	width: 75px;
+}
+#upper-row .top, #home-row .top, #lower-row .top{
+	float: right;
+}
+#upper-row .bottom, #home-row .bottom, #lower-row .bottom{
+	float: left;
+	margin-top: 10px;
+}
+
+#home-row div:first-of-type, #home-row div:last-of-type{
+	width: 90px;
+}
+
+#left-index, #right-index{
+	width: 12px;
+	height: 2px;
+	background-color: gray;
+	box-shadow: 1px 1px gray;
+	margin: 5px;
+}
+#left-index{
+	float: right;
+}
+#right-index{
+	float: left;
+}
+
+#CapsLock p{
+	display: inline-block;
+	width: 50%;
+	font-size: 14px;
+}
+#light{
+	width: 5px;
+	height: 5px;
+	background-color: #00FF00;
+	float: right;
+	border-radius: 5px;
+}
+
+#lower-row div:first-of-type, #lower-row div:last-of-type{
+	width: 118px;
+}
+
+
+#Space{
+	width: 315px;
+	border-radius: 5px;
+}
+
+/*cursor keys container*/
+.cursor-keys{
+	margin-top: 4px;
+	width: 175px;
+}
+.cursor{
+	float: left;
+	margin: 1px;
+	height: 23px;
+	width: 55px;
+	display: flex;
+	align-content: center;
+}
+
+.cursor i{
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+}
+
+.hidden{
+	background-color: gray;
+	border: none;
+	box-shadow: none;
+}
+#ControlLeft, #ControlRight,
+#AltLeft, #AltRight, 
+#ShiftLeft, #ShiftRight,
+#tab, #Backspace,
+#MetaLeft, #fn, 
+#Escape, #Delete{
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+}
+/*#ControlLeft, #ControlRight{
+	font-size: 14px;
+}*/
+#Enter{
+	font-size: 16px;
+}
+
+#AltLeft, #AltRight, #ControlLeft, #ControlRight{
+	 width: 70px; 
+} 
+
+#space-row p{
+	width: 100%;
+	text-align: center;
+}	
+
+@media(max-width: 824px){
+	#function-row, #tab, #CapsLock, #ShiftLeft, #ShiftRight, #Enter, #Backspace, #backslash,
+	.cursor-keys, #ControlLeft, #ControlRight, #fn, #AltLeft, #AltRight, #MetaLeft{
+		display: none; 
+	}
+	
+	.keyboard{
+		width: 670px;
+		height: 310px;
+		position: absolute;
+		top: calc(50% - 150px);
+		left: calc(50% - 335px);
+	}
+	#numbers-row{
+		margin-right: 25px;
+	}
+	#upper-row{
+		margin-left: 60px;
+		margin-right: 0px;	
+	}
+	#home-row{
+		margin-left: 70px;
+		margin-right:5px;
+	}
+	#lower-row{
+		margin-left: 85px;
+		margin-right: 25px;
+	}
+	#Space{
+		width: 50%;
+		display: inline-block;
+		margin: 4px auto;
+	}
+}
+
+#consol{
+	border: 2px; 
+	margin: 5px auto;
+	width: 50%;
+	height: 100px;
+}
