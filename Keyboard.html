@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.75">
+  <link	rel="stylesheet" href="styles.css">
+  <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+  <script src="https://kit.fontawesome.com/8513f61c46.js" crossorigin="anonymous"></script>
+  <script type="module" src="scripts/main.js"></script>
+  <title>Keyboard</title>
+</head>
+
+<body>
+  <label for="language">Select your language: </label>
+  <select id="language">
+	<option id="" value="EN">English</option>
+    <option id="" value="AR">Arabic</option>
+  </select>
+  <div class="keyboard">
+    <!-- function row removed 
+    <div class="row" id="function-row">
+	  <div class="key function" id="Escape">ESC</div>
+	  <div class="key function" id="F1"><i class="top fa-solid fa-magnifying-glass"></i><p class="bottom">F1</p></div>
+	  <div class="key function" id="F2"><i class="top fa-solid fa-caret-up"></i><i class="top fa-regular fa-sun"></i><p class="bottom">F2</p></div>
+	  <div class="key function" id="F3"><i class="top fa-solid fa-caret-down"></i><i class="top fa-regular fa-sun"></i><p class="bottom">F3</p></div>
+	  <div class="key function" id="F4"><i class="top fa-solid fa-laptop"></i><p class="bottom">F4</p></div>
+	  <div class="key function" id="F5"><i class="top fa-solid fa-computer-mouse"></i><p class="bottom">F5</p></div>
+	  <div class="key function" id="F6"><i class="top fa-solid fa-backward"></i><p class="bottom">F6</p></div>
+	  <div class="key function" id="F7"><i class="top fa-solid fa-play"></i> <i class="top fa-solid fa-pause"></i><p class="bottom">F7</p></div>
+	  <div class="key function" id="F8"><i class="top fa-solid fa-forward"></i><p class="bottom">F8</p></div>
+	  <div class="key function" id="F9"><i class="top fa-solid fa-volume-low"></i><p class="bottom">F9</p></div>
+	  <div class="key function" id="F10"><i class="top fa-solid fa-volume-high"></i><p class="bottom">F10</p></div>
+	  <div class="key function" id="F11"><i class="top fa-solid fa-volume-xmark"></i><p class="bottom">F11</p></div>
+	  <div class="key function" id="F12"><i class="top fa-solid fa-wifi"></i><p class="bottom">F12</p></div>
+	  <div class="key function" id="Delete"><p>DEL</p></div>
+	</div>
+	-->
+	<div class="row" id="numbers-row">
+	  <div class="key" id="Backquote"><p class="top">~</p><p class="bottom">`</p></div>
+	  <div class="key" id="Digit1"><p class="top">!</p><p class="bottom">1</p></div>
+	  <div class="key" id="Digit2"><p class="top">@</p><p class="bottom">2</p></div>
+	  <div class="key" id="Digit3"><p class="top">#</p><p class="bottom">3</p></div>
+	  <div class="key" id="Digit4"><p class="top">$</p><p class="bottom">4</p></div>
+	  <div class="key" id="Digit5"><p class="top">%</p><p class="bottom">5</p></div>
+	  <div class="key" id="Digit6"><p class="top">^</p><p class="bottom">6</p></div>
+	  <div class="key" id="Digit7"><p class="top">&</p><p class="bottom">7</p></div>
+	  <div class="key" id="Digit8"><p class="top">*</p><p class="bottom">8</p></div>
+	  <div class="key" id="Digit9"><p class="top">(</p><p class="bottom">9</p></div>
+	  <div class="key" id="Digit0"><p class="top">)</p><p class="bottom">0</p></div>
+	  <div class="key" id="Minus"><p class="top">_</p><p class="bottom">-</p></div>
+	  <div class="key" id="Equal"><p class="top">+</p><p class="bottom">=</p></div>
+	  <div class="key" id="Backspace"><i class="fa-solid fa-arrow-left-long"></i> BACK SPACE</div> 
+	</div>
+	
+	<div class="row" id="upper-row">
+	  <div class="key" id="Tab"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+	  <div class="key" id="KeyQ"><p class="">Q</p></div>
+	  <div class="key" id="KeyW"><p class="">W</p></div>
+	  <div class="key" id="KeyE"><p class="">E</p></div>
+	  <div class="key" id="KeyR"><p class="">R</p></div>
+	  <div class="key" id="KeyT"><p class="">T</p></div>
+	  <div class="key" id="KeyY"><p class="">Y</p></div>
+	  <div class="key" id="KeyU"><p class="">U</p></div>
+	  <div class="key" id="KeyI"><p class="">I</p></div>
+	  <div class="key" id="KeyO"><p class="">O</p></div>
+	  <div class="key" id="KeyP"><p class="">P</p></div>
+	  <div class="key" id="BracketLeft"><p class="top">{</p><p class="bottom">[</p></div>
+	  <div class="key" id="BracketRight"><p class="top">}</p><p class="bottom">]</p></div>
+	  <div class="key" id="Backslash"><p class="top">|</p><p class="bottom">\</p></div> 
+	</div>
+	
+	<div class="row" id="home-row">
+	  <div class="key" id="CapsLock">
+	    <p>CAPS LOCK</p>
+		<span id="light"></span>
+	  </div>
+	  <div class="key" id="KeyA"><p class="">A</p></div>
+	  <div class="key" id="KeyS"><p class="">S</p></div>
+	  <div class="key" id="KeyD"><p class="">D</p></div>
+	  <div class="key" id="KeyF"><p class="">F</p><span id="left-index"></span></div>
+	  <div class="key" id="KeyG"><p class="">G</p></div>
+	  <div class="key" id="KeyH"><p class="">H</p></div>
+	  <div class="key" id="KeyJ"><p class="">J</p><span id="right-index"></span></div>
+	  <div class="key" id="KeyK"><p class="">K</p></div>
+	  <div class="key" id="KeyL"><p class="">L</p></div>
+	  <div class="key" id="Semicolon"><p class="top">:</p><p class="bottom">;</p></div>
+	  <div class="key" id="Quote"><p class="top">"</p><p class="bottom">'</p></div>
+	  <div class="key" id="Enter">ENTER<br><i class="fa-solid fa-arrow-left-long"></i></div> 
+	</div>
+	
+	<div class="row" id="lower-row">
+	  <div class="key" id="ShiftLeft">SHIFT</div>
+	  <div class="key" id="KeyZ"><p class="">Z</p></div>
+	  <div class="key" id="KeyX"><p class="">X</p></div>
+	  <div class="key" id="KeyC"><p class="">C</p></div>
+	  <div class="key" id="KeyV"><p class="">V</p></div>
+	  <div class="key" id="KeyB"><p class="">B</p></div>
+	  <div class="key" id="KeyN"><p class="">N</p></div>
+	  <div class="key" id="KeyM"><p class="">M</p></div>
+	  <div class="key" id="Comma"><p class="top"><</p><p class="bottom">,</p></div>
+	  <div class="key" id="Period"><p class="top">></p><p class="bottom">.</p></div>
+	  <div class="key" id="Slash"><p class="top">?</p><p class="bottom">/</p></div>
+	  <div class="key" id="ShiftRight">SHIFT</div> 
+	</div>
+	
+	<div class="row" id="space-row">
+	  <div class="key" id="ControlLeft"><p>CTRL</p></div>
+	  <!--<div class="key" id="fn"><p>FN</p></div>
+	  <div class="key" id="MetaLeft"><p><i class="fa-brands fa-windows"></i></p></div>
+	  -->
+	  <div class="key" id="AltLeft"><p>ALT</p></div>
+	  <div class="key Space" id="Space"></div>
+	  <div class="key" id="AltRight"><p>ALT</p></div>
+	  <div class="key" id="ControlRight"><p>CTRL</p></div>
+	  <div class="cursor-keys">
+	    <div class="key cursor hidden"></div>
+		<div class="key cursor" id="ArrowUp"><i class="fa-solid fa-caret-up"></i></div>
+		<div class="key cursor hidden"></div>
+	    <div class="key cursor" id="ArrowLeft"><i class="fa-solid fa-caret-left"></i></div>
+	    <div class="key cursor" id="ArrowDown"><i class="fa-solid fa-caret-down"></i></div>
+	    <div class="key cursor" id="ArrowRight"><i class="fa-solid fa-caret-right"></i></div> 
+	  </div>
+	</div>
+  </div>
+  <div id="consol">
+  </div>
+</body>
+
+</html>
