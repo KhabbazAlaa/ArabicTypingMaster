@@ -1,48 +1,65 @@
 export class Keyboard{
+	//initializing the object by providing the English-Arabic pairs of each key
 	constructor(){
-		this.KeyLangMap = new Map();
-		this.KeyLangMap.set('Backquote', ['`', 'ذ']);
+		this.keys = new Map();
+		this.keys.set('Backquote', ['`', 'ذ']);
 		//upper row 
 		//KeyLangMap.set('Tab', 'TAB');
-		this.KeyLangMap.set('KeyQ', ['Q', 'ض']);
-		this.KeyLangMap.set('KeyW', ['W', 'ص']);
-		this.KeyLangMap.set('KeyE', ['E', 'ث']);
-		this.KeyLangMap.set('KeyR', ['R', 'ق']);
-		this.KeyLangMap.set('KeyT', ['T', 'ف']);
-		this.KeyLangMap.set('KeyY', ['Y', 'غ']);
-		this.KeyLangMap.set('KeyU', ['U', 'ع']);
-		this.KeyLangMap.set('KeyI', ['I', 'ه']);
-		this.KeyLangMap.set('KeyO', ['O', 'خ']);
-		this.KeyLangMap.set('KeyP', ['P', 'ح']);
-		this.KeyLangMap.set('BracketLeft', ['[', 'ج']);
-		this.KeyLangMap.set('BracketRight',[']', 'د']);
+		this.keys.set('KeyQ', ['Q', 'ض']);
+		this.keys.set('KeyW', ['W', 'ص']);
+		this.keys.set('KeyE', ['E', 'ث']);
+		this.keys.set('KeyR', ['R', 'ق']);
+		this.keys.set('KeyT', ['T', 'ف']);
+		this.keys.set('KeyY', ['Y', 'غ']);
+		this.keys.set('KeyU', ['U', 'ع']);
+		this.keys.set('KeyI', ['I', 'ه']);
+		this.keys.set('KeyO', ['O', 'خ']);
+		this.keys.set('KeyP', ['P', 'ح']);
+		this.keys.set('BracketLeft', ['[', 'ج']);
+		this.keys.set('BracketRight',[']', 'د']);
 		//home row keys
 		//KeyLangMap.et('CapsLock', 'CAPSLOCK');
-		this.KeyLangMap.set('KeyA', ['A', 'ش']);
-		this.KeyLangMap.set('KeyS', ['S', 'س']);
-		this.KeyLangMap.set('KeyD', ['D', 'ي']);
-		this.KeyLangMap.set('KeyF', ['F', 'ب']);
-		this.KeyLangMap.set('KeyG', ['G', 'ل']);
-		this.KeyLangMap.set('KeyH', ['H', 'ا']);
-		this.KeyLangMap.set('KeyJ', ['J', 'ت']);
-		this.KeyLangMap.set('KeyK', ['K', 'ن']);
-		this.KeyLangMap.set('KeyL', ['L', 'م']);
-		this.KeyLangMap.set('Semicolon', [';', 'ك']);
-		this.KeyLangMap.set('Quote', ['\'', 'ط']);
+		this.keys.set('KeyA', ['A', 'ش']);
+		this.keys.set('KeyS', ['S', 'س']);
+		this.keys.set('KeyD', ['D', 'ي']);
+		this.keys.set('KeyF', ['F', 'ب']);
+		this.keys.set('KeyG', ['G', 'ل']);
+		this.keys.set('KeyH', ['H', 'ا']);
+		this.keys.set('KeyJ', ['J', 'ت']);
+		this.keys.set('KeyK', ['K', 'ن']);
+		this.keys.set('KeyL', ['L', 'م']);
+		this.keys.set('Semicolon', [';', 'ك']);
+		this.keys.set('Quote', ['\'', 'ط']);
 		//lower row keys
-		this.KeyLangMap.set('KeyZ', ['Z', 'ئ']);
-		this.KeyLangMap.set('KeyX', ['X', 'ء']);
-		this.KeyLangMap.set('KeyC', ['C', 'ؤ']);
-		this.KeyLangMap.set('KeyV', ['V', 'ر']);
-		this.KeyLangMap.set('KeyB', ['B', 'لا']);
-		this.KeyLangMap.set('KeyN', ['N', 'ى']);
-		this.KeyLangMap.set('KeyM', ['M', 'ة']);
-		this.KeyLangMap.set('Comma', [',', 'و']);
-		this.KeyLangMap.set('Period', ['.', 'ز']);
-		this.KeyLangMap.set('Slash', ['/', 'ظ']);
+		this.keys.set('KeyZ', ['Z', 'ئ']);
+		this.keys.set('KeyX', ['X', 'ء']);
+		this.keys.set('KeyC', ['C', 'ؤ']);
+		this.keys.set('KeyV', ['V', 'ر']);
+		this.keys.set('KeyB', ['B', 'لا']);
+		this.keys.set('KeyN', ['N', 'ى']);
+		this.keys.set('KeyM', ['M', 'ة']);
+		this.keys.set('Comma', [',', 'و']);
+		this.keys.set('Period', ['.', 'ز']);
+		this.keys.set('Slash', ['/', 'ظ']);
 	}
-	
-	getKeyLangMap(key){
-		return this.KeyLangMap.get(key);
+
+	/*
+	*@returns {Map}		
+	*/
+	get Keys(){
+		return this.keys;
+	}
+
+	/*
+	*@param {string} key: key that will be passed to the Map object to get the corresponding values
+	*@returns {string[]}
+	*/
+	getKey(key){
+		return this.keys.get(key);
+	}
+
+	updateCapsLockState(){
+		let light = document.getElementById('light');
+		light.style.backgroundColor = event.getModifierState('CapsLock')? '#00FF00':'black';
 	}
 };
