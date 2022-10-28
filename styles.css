@@ -9,7 +9,7 @@
 	width: 825px;
 	height: 320px;
 	position: absolute;
-	top: calc(50% - 160px);
+	top: 100px;
 	left: calc(50% - 412.5px);
 	padding: 5px;
 	padding-top: 15px;
@@ -212,9 +212,13 @@
 	}
 }
 
-#consol{
-	border: 2px; 
-	margin: 5px auto;
-	width: 50%;
-	height: 100px;
+#console{
+	position: absolute;
+	bottom: 25px;
+	left: calc(50% - 400px);
+	width: 800px;
+	height: 150px;
+	font-size: 24px;
+	padding: 5px;
+	background-color: rgb(192, 188, 188);
 }
