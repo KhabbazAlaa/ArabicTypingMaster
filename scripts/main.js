@@ -8,8 +8,16 @@ addEventListener('change', (e)=>{
 	interfaceLang = (langDropdownBox.value === 'EN')? 0 : 1;
 
 	for(const [key, value] of keyboard.Keys.entries()){
-		let keyText = value[interfaceLang];
-		document.getElementById(key).innerHTML = `<p class="">  ${keyText}  </p>`;
+		let keyText;
+		switch (interfaceLang){
+			case 1:
+				keyText = value.AR;
+				break
+			default:
+				keyText = value.EN;
+				break;
+		}
+		document.getElementById(key).innerHTML = `<p class="">${keyText}</p>`;
 	}
 });
 
@@ -21,7 +29,7 @@ addEventListener('keydown', (e)=>{
 		e.value
 		if(e.code === 'CapsLock'){
 			keyboard.updateCapsLockState();
-		}	
+		}
 		
 		let ch = keyboard.getKey(e.code)[interfaceLang];
 		cnsl.innerHTML += ch;
