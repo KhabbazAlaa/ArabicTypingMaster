@@ -1,14 +1,16 @@
 import {Keyboard} from "./Keyboard.js";
 var keyboard = new Keyboard();
-
+var cnsl = document.getElementById('console');
+var interfaceLang = 0;
 
 addEventListener('change', (e)=>{
 	let langDropdownBox = document.getElementById('language');
+	interfaceLang = (langDropdownBox.value === 'EN')? 0 : 1;
+
 	for(const [key, value] of keyboard.Keys.entries()){
-		let keyText = (langDropdownBox.value === 'EN')? value[0]:value[1];
+		let keyText = value[interfaceLang];
 		document.getElementById(key).innerHTML = `<p class="">  ${keyText}  </p>`;
 	}
-
 });
 
 addEventListener('keydown', (e)=>{
@@ -16,11 +18,14 @@ addEventListener('keydown', (e)=>{
 		let key = document.getElementById(e.code);
 		key.style.backgroundColor = '#222222';
 		key.style.boxShadow = 'none';
-		
+		e.value
 		if(e.code === 'CapsLock'){
 			keyboard.updateCapsLockState();
 		}	
-
+		
+		let ch = keyboard.getKey(e.code)[interfaceLang];
+		cnsl.innerHTML += ch;
+		console.log(ch);
 	}
 );
 

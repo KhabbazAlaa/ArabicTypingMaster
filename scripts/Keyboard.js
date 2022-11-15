@@ -51,11 +51,11 @@ export class Keyboard{
 	}
 
 	/*
-	*@param {string} key: key that will be passed to the Map object to get the corresponding values
+	*@param {string} code: code is the key of our Map
 	*@returns {string[]}
 	*/
-	getKey(key){
-		return this.keys.get(key);
+	getKey(code){
+		return this.keys.get(code);
 	}
 
 	updateCapsLockState(){
