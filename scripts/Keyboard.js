@@ -63,7 +63,7 @@ export class Keyboard{
 		light.style.backgroundColor = event.getModifierState('CapsLock')? '#00FF00':'black';
 	}
 
-	updateKeys(interfaceLang){
+	updateLanguage(interfaceLang){
 		for(const [key, value] of this.keys.entries()){
 			let keyText;
 			switch (interfaceLang){
@@ -76,5 +76,11 @@ export class Keyboard{
 			}
 			document.getElementById(key).innerHTML = `<p class="">${keyText}</p>`;
 		}
+	}
+
+	applyPressedStyle(key, pressed){
+		
+		key.style.backgroundColor = pressed? '#222222' : 'black';
+		key.style.boxShadow = pressed? 'none' : '-2px 2px #444';
 	}
 };

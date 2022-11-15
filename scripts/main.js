@@ -3,19 +3,24 @@ var keyboard = new Keyboard();
 //var cnsl = document.getElementById('console');
 var interfaceLang = 'EN';
 
+// to check capslock state once any botton pressed 
+// it could be deleted if I find a way to check capslock state 
+//before any keypress 
+var isFirstAction = true;
+
 addEventListener('change', (e)=>{
 	interfaceLang = document.getElementById('language').value;
-	keyboard.updateKeys(interfaceLang);
+	keyboard.updateLanguage(interfaceLang);
 });
 
 addEventListener('keydown', (e)=>{
 		e.preventDefault();
 		let key = document.getElementById(e.code);
-		key.style.backgroundColor = '#222222';
-		key.style.boxShadow = 'none';
-		e.value
-		if(e.code === 'CapsLock'){
+		keyboard.applyPressedStyle(key, true);
+		
+		if(e.code === 'CapsLock' || isFirstAction){
 			keyboard.updateCapsLockState();
+			isFirstAction = false;
 		}
 		
 		// let ch = keyboard.getKey(e.code)[interfaceLang];
@@ -26,8 +31,6 @@ addEventListener('keydown', (e)=>{
 
 addEventListener('keyup', (e)=>{
 	let key = document.getElementById(e.code);
-	key.style.backgroundColor = 'black';
-	key.style.boxShadow = '-2px 2px #444';
-	
+	keyboard.applyPressedStyle(key, false);	
 	}
 );
