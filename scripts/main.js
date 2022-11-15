@@ -1,24 +1,11 @@
 import {Keyboard} from "./Keyboard.js";
 var keyboard = new Keyboard();
-var cnsl = document.getElementById('console');
-var interfaceLang = 0;
+//var cnsl = document.getElementById('console');
+var interfaceLang = 'EN';
 
 addEventListener('change', (e)=>{
-	let langDropdownBox = document.getElementById('language');
-	interfaceLang = (langDropdownBox.value === 'EN')? 0 : 1;
-
-	for(const [key, value] of keyboard.Keys.entries()){
-		let keyText;
-		switch (interfaceLang){
-			case 1:
-				keyText = value.AR;
-				break
-			default:
-				keyText = value.EN;
-				break;
-		}
-		document.getElementById(key).innerHTML = `<p class="">${keyText}</p>`;
-	}
+	interfaceLang = document.getElementById('language').value;
+	keyboard.updateKeys(interfaceLang);
 });
 
 addEventListener('keydown', (e)=>{
@@ -31,9 +18,9 @@ addEventListener('keydown', (e)=>{
 			keyboard.updateCapsLockState();
 		}
 		
-		let ch = keyboard.getKey(e.code)[interfaceLang];
-		cnsl.innerHTML += ch;
-		console.log(ch);
+		// let ch = keyboard.getKey(e.code)[interfaceLang];
+		// cnsl.innerHTML += ch;
+		// console.log(ch);
 	}
 );
 

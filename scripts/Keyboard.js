@@ -62,4 +62,19 @@ export class Keyboard{
 		let light = document.getElementById('light');
 		light.style.backgroundColor = event.getModifierState('CapsLock')? '#00FF00':'black';
 	}
+
+	updateKeys(interfaceLang){
+		for(const [key, value] of this.keys.entries()){
+			let keyText;
+			switch (interfaceLang){
+				case 'AR':
+					keyText = value.AR;
+					break;
+				default:
+					keyText = value.EN;
+					break;
+			}
+			document.getElementById(key).innerHTML = `<p class="">${keyText}</p>`;
+		}
+	}
 };
