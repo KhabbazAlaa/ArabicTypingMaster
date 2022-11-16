@@ -52,35 +52,48 @@ export class Keyboard{
 
 	/*
 	*@param {string} code: code is the key of our Map
-	*@returns {string[]}
+	*@returns object{EN: '', AR: ''}
 	*/
 	getKey(code){
 		return this.keys.get(code);
 	}
+	
+	getKeyText(code, lang){
+		let keyText;
+		switch (lang){
+			case 'AR':
+				keyText = this.getKey(code).AR;
+				break;
+			default:
+				keyText = this.getKey(code).EN;
+				break;
+		}
+
+		return keyText;
+	}
+	
 
 	updateCapsLockState(){
 		let light = document.getElementById('light');
 		light.style.backgroundColor = event.getModifierState('CapsLock')? '#00FF00':'black';
 	}
 
-	updateLanguage(interfaceLang){
-		for(const [key, value] of this.keys.entries()){
-			let keyText;
-			switch (interfaceLang){
-				case 'AR':
-					keyText = value.AR;
-					break;
-				default:
-					keyText = value.EN;
-					break;
-			}
-			document.getElementById(key).innerHTML = `<p class="">${keyText}</p>`;
+	updateLanguage(lang){
+		for(const code of this.keys.keys()){
+			let keyText = this.getKeyText(code, lang);
+			document.getElementById(code).textContent = keyText;	
 		}
 	}
 
-	applyPressedStyle(key, pressed){
-		
-		key.style.backgroundColor = pressed? '#222222' : 'black';
-		key.style.boxShadow = pressed? 'none' : '-2px 2px #444';
+	applyPressStyle(code, pressed){
+		let key = document.getElementById(code);
+		if(pressed){
+			key.classList.add("press");
+			key.classList.remove("unpress");
+		}
+		else{
+			key.classList.add("unpress");
+			key.classList.remove("press");
+		}
 	}
 };
