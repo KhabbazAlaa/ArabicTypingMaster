@@ -1,6 +1,6 @@
 import {Keyboard} from "./Keyboard.js";
 var keyboard = new Keyboard();
-var outputTextArea = document.getElementById('outputText');
+// var outputTextArea = document.getElementById('outputText');
 var interfaceLang = 'EN';
 
 /* to check capslock state once any botton pressed 
@@ -22,8 +22,8 @@ addEventListener('keydown', (e)=>{
 			isFirstAction = false;
 		}
 		
-		let key = keyboard.getKeyText(e.code, interfaceLang);
-		outputTextArea.value += key;
+		// let key = keyboard.getKeyText(e.code, interfaceLang);
+		// outputTextArea.value += key;
 	}
 );
 
