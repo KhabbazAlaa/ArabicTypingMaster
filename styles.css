@@ -33,6 +33,23 @@
 	background-color: red !important;
 }
 
+#clock{
+	height: 100px;
+	width: 100px;
+	background-color: gray;
+	color: black;
+	border: none;
+	font-size: 30px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+}
+
 .keyboard{
 	width: 825px;
 	height: 320px;

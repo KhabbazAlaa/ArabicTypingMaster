@@ -1,14 +1,22 @@
-import {Keyboard} from "./Keyboard.js";
+import {Keyboard} from "./keyboard.js";
 import { Source } from "./source.js";
+import { CountDownTimer } from "./countDownTimer.js";
 
 var interfaceLang = 'EN';
 var keyboard = new Keyboard();
 var source = new Source();
-// var outputTextArea = document.getElementById('outputText');
-/* to check capslock state once any botton pressed 
+var countDownTimer = new CountDownTimer(60);
+
+/* isFirstAction is here to check capslock state once any botton pressed 
 it could be deleted if I find a way to check capslock state 
 before any keypress  */
 var isFirstAction = true;
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+	if(!countDownTimer.countDown())
+		clearInterval(x);
+}, 1000);
 
 addEventListener('change', (e)=>{
 	interfaceLang = document.getElementById('language').value;
