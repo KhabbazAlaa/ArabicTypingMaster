@@ -1,8 +1,10 @@
 import {Keyboard} from "./Keyboard.js";
-var keyboard = new Keyboard();
-// var outputTextArea = document.getElementById('outputText');
-var interfaceLang = 'EN';
+import { Source } from "./source.js";
 
+var interfaceLang = 'EN';
+var keyboard = new Keyboard();
+var source = new Source();
+// var outputTextArea = document.getElementById('outputText');
 /* to check capslock state once any botton pressed 
 it could be deleted if I find a way to check capslock state 
 before any keypress  */
@@ -21,9 +23,23 @@ addEventListener('keydown', (e)=>{
 			keyboard.updateCapsLockState();
 			isFirstAction = false;
 		}
+
 		
-		// let key = keyboard.getKeyText(e.code, interfaceLang);
-		// outputTextArea.value += key;
+		let currentKey = document.getElementById("source").children[source.currentIndex];
+		
+		if(keyboard.getKeyText(e.code) == source.Keys[source.currentIndex]){
+			currentKey.classList.add("correct");
+			currentKey.classList.remove("incorrect");
+			source.currentIndex++;
+		}
+		else{
+			currentKey.classList.add("incorrect");
+			currentKey.classList.remove("correct");
+		}
+
+		if(source.currentIndex >= 5){
+			source.resetKeys();
+		}
 	}
 );
 
