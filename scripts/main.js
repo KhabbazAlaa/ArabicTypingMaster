@@ -7,24 +7,21 @@ var keyboard = new Keyboard();
 var source = new Source();
 var defaultTime = 5;
 var countDownTimer = new CountDownTimer(defaultTime);
-
-/* isFirstAction is here to check capslock state once any botton pressed 
-it could be deleted if I find a way to check capslock state 
-before any keypress  */
 var isFirstAction = true;
 
+document.addEventListener("timeOut", () => {
+	source.cover("Time Is Over!");
+});
 
 addEventListener('change', (e)=>{
 	interfaceLang = document.getElementById('language').value;
 	keyboard.updateLanguage(interfaceLang);
 });
 
-
-
 addEventListener('keydown', (e)=>{
 		e.preventDefault();
 		if(isFirstAction){
-			source.unCover(true);
+			source.unCover();
 			keyboard.updateCapsLockState();
 			countDownTimer.start();
 			isFirstAction = false;

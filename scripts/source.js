@@ -2,15 +2,17 @@ export class Source{
     constructor(){
         this.keys = ['', '', '', '', ''];
         this.currentIndex = 0;
+        
+        this.sourcePanel = document.getElementById("source");
+        this.coverPanel = document.getElementById("cover");
         this.resetKeys();
-        this.updateUI();
     }
     get Keys(){
         return this.keys;
     }
 
     validateKeyStroke(value){
-        let currentKey = document.getElementById("source").children[this.currentIndex];
+        let currentKey = this.sourcePanel.children[this.currentIndex];
         if(value == this.keys[this.currentIndex]){
 			currentKey.classList.add("correct");
 			currentKey.classList.remove("incorrect");
@@ -38,15 +40,19 @@ export class Source{
     }
 
     updateUI(){
-        let src = document.getElementById("source");
         for(let i = 0; i < 5; i++){
-            src.children[i].textContent = this.keys[i];
-            src.children[i].classList.remove("incorrect");
-			src.children[i].classList.remove("correct");
+            this.sourcePanel.children[i].textContent = this.keys[i];
+            this.sourcePanel.children[i].classList.remove("incorrect");
+			this.sourcePanel.children[i].classList.remove("correct");
         }
     }
 
-    unCover(flag){  
-        document.getElementById("cover").style.zIndex = (flag)? -1 : 1;
+    cover(msg){  
+        this.unCover(false);
+        this.coverPanel.textContent = msg;
+    }
+    
+    unCover(flag = true){
+        this.coverPanel.style.zIndex = (flag == true)? -1 : 1;
     }
 }
