@@ -87,6 +87,9 @@ export class Keyboard{
 
 	applyPressStyle(code, pressed){
 		let key = document.getElementById(code);
+		if(code == 'CapsLock'){
+			this.updateCapsLockState();
+		}
 		if(pressed){
 			key.classList.add("press");
 			key.classList.remove("unpress");

@@ -1,6 +1,7 @@
 export class Source{
     constructor(){
         this.keys = ['', '', '', '', ''];
+        this.currentIndex = 0;
         this.resetKeys();
         this.updateUI();
     }
@@ -8,6 +9,22 @@ export class Source{
         return this.keys;
     }
 
+    validateKeyStroke(value){
+        let currentKey = document.getElementById("source").children[this.currentIndex];
+        if(value == this.keys[this.currentIndex]){
+			currentKey.classList.add("correct");
+			currentKey.classList.remove("incorrect");
+			this.currentIndex++;
+		}
+		else{
+			currentKey.classList.add("incorrect");
+			currentKey.classList.remove("correct");
+		}
+		//loading new keys
+		if(this.currentIndex >= 5){
+			this.resetKeys();
+		}
+    }
     resetKeys(){
         //let alphabet = "abcdefghijklmnopqrstuvwxyz";
         let alphabet = "asdfghjkl";
@@ -27,5 +44,9 @@ export class Source{
             src.children[i].classList.remove("incorrect");
 			src.children[i].classList.remove("correct");
         }
+    }
+
+    unCover(flag){  
+        document.getElementById("cover").style.zIndex = (flag)? -1 : 1;
     }
 }

@@ -4,8 +4,7 @@
 	box-sizing: border-box;
 	font-family: sans-serif;
 }
-
-#source{
+.panel{
 	width: 500px;
 	height: 80px;
 	position: absolute;
@@ -13,10 +12,19 @@
 	left: calc(50% - 250px);
 	background-color: #ecfafa;
 	border: solid #eef0e6 1px;
+	padding: 10px;
+}
+#cover{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: xx-large;
+	z-index: 1;
+}
+#source{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	padding: 10px;
 }
 #source > .key{
 	color: white;
@@ -45,8 +53,7 @@
 	right: 10px;
 	display: flex;
 	align-items: center;
-	padding-left: 10px;
-	padding-right: 10px;
+	justify-content: center;
 	border-radius: 10px;
 }
 
