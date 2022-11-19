@@ -47,7 +47,7 @@ export class CountDownTimer{
         let timeLeft = this.toString(this.seconds);
         this.timer.textContent = timeLeft;
         if(this.timeIsOver){
-            this.timer.classList.add("incorrect");
+            this.timer.classList.add("error");
         }
     }
 }

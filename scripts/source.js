@@ -5,6 +5,7 @@ export class Source{
         
         this.sourcePanel = document.getElementById("source");
         this.coverPanel = document.getElementById("cover");
+        this.cover("press any key to start!");
         this.resetKeys();
     }
     get Keys(){
@@ -14,13 +15,13 @@ export class Source{
     validateKeyStroke(value){
         let currentKey = this.sourcePanel.children[this.currentIndex];
         if(value == this.keys[this.currentIndex]){
-			currentKey.classList.add("correct");
-			currentKey.classList.remove("incorrect");
+			currentKey.classList.add("okay");
+			currentKey.classList.remove("error");
 			this.currentIndex++;
 		}
 		else{
-			currentKey.classList.add("incorrect");
-			currentKey.classList.remove("correct");
+			currentKey.classList.add("error");
+			currentKey.classList.remove("okay");
 		}
 		//loading new keys
 		if(this.currentIndex >= 5){
@@ -42,14 +43,15 @@ export class Source{
     updateUI(){
         for(let i = 0; i < 5; i++){
             this.sourcePanel.children[i].textContent = this.keys[i];
-            this.sourcePanel.children[i].classList.remove("incorrect");
-			this.sourcePanel.children[i].classList.remove("correct");
+            this.sourcePanel.children[i].classList.remove("error");
+			this.sourcePanel.children[i].classList.remove("okay");
         }
     }
 
     cover(msg){  
         this.unCover(false);
         this.coverPanel.textContent = msg;
+        this.coverPanel.classList.add("info");
     }
     
     unCover(flag = true){

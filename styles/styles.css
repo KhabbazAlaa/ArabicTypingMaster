@@ -1,5 +1,15 @@
 @import "keyboard.css";
 
+
+:root{
+	--error-background-color:  rgb(247, 186, 186);
+	--error-color: red;
+	--okay-background-color: rgb(156, 240, 156);
+	--okay-color: rgba(0, 128, 0, 1);	
+	--info-background-color: rgb(194, 194, 252);
+	--info-color: blue;
+}
+
 *{
 	padding: 0;
 	margin: 0;
@@ -16,6 +26,7 @@
 	border: solid #eef0e6 1px;
 	padding: 10px;
 }
+
 #cover{
 	display: flex;
 	align-items: center;
@@ -23,29 +34,40 @@
 	font-size: xx-large;
 	z-index: 1;
 }
+
 #source{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
+
 #source > .key{
 	color: white;
 	background-color: gray;
 	text-align: center;
 }
+
 #source > .key:hover{
 	box-shadow: -2px 2px #444;
 }
-.correct{
-	background-color: green !important;
+
+.okay{
+	background-color: var(--okay-background-color) !important;
+	color: var(--okay-color) !important;
 }
-.incorrect{
-	background-color: red !important;
+
+.error{
+	background-color: var(--error-background-color) !important;
+	color: var(--error-color) !important;
+}
+.info{
+	background-color: var(--info-background-color) !important;
+	color: var(--info-color) !important;
 }
 
 #clock{
-	height: 100px;
-	width: 100px;
+	height: 120px;
+	width: 120px;
 	background-color: gray;
 	color: black;
 	border: none;
