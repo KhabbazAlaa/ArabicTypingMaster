@@ -14,19 +14,21 @@ export class Source{
 
     validateKeyStroke(value){
         let currentKey = this.sourcePanel.children[this.currentIndex];
-        if(value == this.keys[this.currentIndex]){
-			currentKey.classList.add("okay");
-			currentKey.classList.remove("error");
-			this.currentIndex++;
+        //if wrong key is pressed
+        if(value != this.keys[this.currentIndex]){
+            currentKey.classList.add("error");
+            return false;
 		}
-		else{
-			currentKey.classList.add("error");
-			currentKey.classList.remove("okay");
-		}
-		//loading new keys
-		if(this.currentIndex >= 5){
-			this.resetKeys();
-		}
+        //else: the correct key was pressed
+        currentKey.classList.add("okay");
+        currentKey.classList.remove("error");
+        this.currentIndex++;
+        //loading new keys
+        if(this.currentIndex >= 5){
+            this.resetKeys();
+        }
+    
+        return true;
     }
     resetKeys(){
         //let alphabet = "abcdefghijklmnopqrstuvwxyz";
