@@ -16,12 +16,16 @@ var result = {
 document.addEventListener("timeOut", () => {
 	source.cover("Time Is Over!");
 	console.log(result);
+	
+	isFirstAction = true;
+	countDownTimer.reset();
+	source.resetKeys();
+	result.totalKeyStrokes = result.grossKeyStrokes = 0;
 });
 
 addEventListener('change', (e)=>{
 	interfaceLang = document.getElementById('language').value;
 	keyboard.updateLanguage(interfaceLang);
-	
 });
 
 addEventListener('keydown', (e)=>{
